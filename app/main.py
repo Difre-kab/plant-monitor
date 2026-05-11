@@ -10,3 +10,7 @@ app = FastAPI(
 def read_root() -> dict[str,str]:
     """Health check endpoint."""
     return {"message": "Hello, Plant-Monitor"}
+@app.get("/api/sensors")
+def list_sensor() -> list[dict]:
+    """Return current readings for all sensors."""
+    return [read_temperature()]
